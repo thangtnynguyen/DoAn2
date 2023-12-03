@@ -12,7 +12,7 @@ namespace BUS.Interfaces
         KhoaHocModel GetDatabyID(string id);
         bool Create(KhoaHocModel model);
         bool Update(KhoaHocModel model);
-        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa, string loai_khoa);
+        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa);
         bool Delete(KhoaHocModel model);
     }
 }

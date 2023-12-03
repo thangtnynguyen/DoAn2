@@ -10,14 +10,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace DAO.Helper
 {
-    public class DatabaseHelper: IDatabaseHelper
+    public class TruyVanDuLieu: ITruyVanDuLieu
     {
         public string StrConnection { get; set; }
         //Connection
         public SqlConnection sqlConnection { get; set; }
         //NpgsqlTransaction 
         public SqlTransaction sqlTransaction { get; set; }
-        public DatabaseHelper(IConfiguration configuration)
+        public TruyVanDuLieu(IConfiguration configuration)
         {
             StrConnection = configuration["ConnectionStrings:DefaultConnection"];
         }
@@ -224,6 +224,53 @@ namespace DAO.Helper
                 }
             }
             return result;
+        }
+
+        public DataTable ExecuteSProcedureReturnDataTable(out string msgError, string sprocedureName, params object[] paramObjects)
+        {
+            DataTable tb = new DataTable();
+            SqlConnection connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand { CommandType = CommandType.StoredProcedure, CommandText = sprocedureName };
+                connection = new SqlConnection(StrConnection);
+                cmd.Connection = connection;
+
+                int parameterInput = (paramObjects.Length) / 2;
+
+                int j = 0;
+                for (int i = 0; i < parameterInput; i++)
+                {
+                    string paramName = Convert.ToString(paramObjects[j++]).Trim();
+                    object value = paramObjects[j++];
+                    if (paramName.ToLower().Contains("json"))
+                    {
+                        cmd.Parameters.Add(new SqlParameter()
+                        {
+                            ParameterName = paramName,
+                            Value = value ?? DBNull.Value,
+                            SqlDbType = SqlDbType.NVarChar
+                        });
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter(paramName, value ?? DBNull.Value));
+                    }
+                }
+
+                SqlDataAdapter ad = new SqlDataAdapter(cmd);
+                ad.Fill(tb);
+                cmd.Dispose();
+                ad.Dispose();
+                connection.Dispose();
+                msgError = "";
+            }
+            catch (Exception exception)
+            {
+                tb = null;
+                msgError = exception.ToString();
+            }
+            return tb;
         }
     }
 }

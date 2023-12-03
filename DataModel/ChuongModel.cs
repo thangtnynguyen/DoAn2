@@ -14,6 +14,8 @@ namespace DataModel
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
         public List<BaiHocModel> baiHocModels { get; set; }
+        public int status { get; set; }
+
 
     }
 }

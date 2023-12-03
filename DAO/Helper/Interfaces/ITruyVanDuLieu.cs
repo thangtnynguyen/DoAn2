@@ -14,7 +14,7 @@ namespace DAO.Helper.Interfaces
         public string StoreProcedureName { get; set; }
         public List<object> StoreProcedureParams { get; set; }
     }
-    public interface IDatabaseHelper
+    public interface ITruyVanDuLieu
     {
        
         void SetConnectionString(string connectionString);
@@ -26,6 +26,7 @@ namespace DAO.Helper.Interfaces
         DataTable ExecuteQueryToDataTable(string strquery, out string msgError);
         object ExecuteScalar(string strquery, out string msgError);
         object ExecuteScalarSProcedureWithTransaction(out string msgError, string sprocedureName, params object[] paramObjects);
+        DataTable ExecuteSProcedureReturnDataTable(out string msgError, string sprocedureName, params object[] paramObjects);
 
 
 

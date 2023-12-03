@@ -1,6 +1,7 @@
 ﻿using BUS.Interfaces;
 using DAO.Interfaces;
 using DataModel;
+using System.Reflection;
 
 namespace BUS
 {
@@ -23,17 +24,17 @@ namespace BUS
 
         public KhoaHocModel GetDatabyID(string id)
         {
-            throw new NotImplementedException();
+            return _res.GetDatabyID(id);
         }
 
-        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa, string loai_khoa)
+        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa)
         {
-            throw new NotImplementedException();
+            return _res.Search(pageIndex, pageSize, out total, ten_khoa);
         }
 
         public bool Update(KhoaHocModel model)
         {
-            throw new NotImplementedException();
+            return _res.Update(model);
         }
     }
 }

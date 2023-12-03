@@ -59,7 +59,7 @@ namespace DAO.Helper
             }
         }
     }
-    public static class CollectionHelper
+    public static class ChuyenDoiDuLieu
     {
         private static string GetExcelColumnName(int columnNumber)
         {

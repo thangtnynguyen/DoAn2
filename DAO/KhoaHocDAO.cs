@@ -15,14 +15,13 @@ namespace DAO
     public class KhoaHocDAO : IKhoaHocDAO
     {
 
-        private IDatabaseHelper _dbHelper;
-        public KhoaHocDAO(IDatabaseHelper dbHelper)
+        private ITruyVanDuLieu _dbHelper;
+        public KhoaHocDAO(ITruyVanDuLieu dbHelper)
         {
             _dbHelper = dbHelper;
         }
         public bool Create(KhoaHocModel model)
         {
-
 
 
             string msgError = "";
@@ -34,6 +33,7 @@ namespace DAO
                  "@HinhAnh", model.HinhAnh,
                  "@TacGia", model.TacGiaId,
                  "@Gia", model.Gia,
+                 "@VideoGioiThieu", model.VideoGioiThieu,
                  "@chuongModels", model.chuongModels != null ? MessageConvert.SerializeObject(model.chuongModels) : null,
                  "CreateAt",model.CreateAt,
                  "UpdateAt",model.UpdateAt
@@ -59,17 +59,74 @@ namespace DAO
 
         public KhoaHocModel GetDatabyID(string id)
         {
-            throw new NotImplementedException();
+
+            string msgError = "";
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_LayKhoaHocById",
+                     "@id", id);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                return dt.ConvertTo<KhoaHocModel>().FirstOrDefault();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                
+            }
+
         }
 
-        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa, string loai_khoa)
+        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa)
         {
-            throw new NotImplementedException();
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_TimKiemKhoaHoc",
+                    "@page_index", pageIndex,
+                    "@page_size", pageSize,
+                    "@ten_khoa", ten_khoa);
+                if (!string.IsNullOrEmpty(msgError))
+                    throw new Exception(msgError);
+                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<KhoaHocModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         public bool Update(KhoaHocModel model)
         {
-            throw new NotImplementedException();
+
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_SuaKhoaHoc_Chuong",
+                "@Id", model.Id,
+                "@Ten", model.Ten,
+                "@Loai", model.LoaiId,
+                "@HinhAnh", model.HinhAnh,
+                "@TacGia", model.TacGiaId,
+                "@Gia", model.Gia,
+                "@VideoGioiThieu",model.VideoGioiThieu,
+                "@chuongModels", model.chuongModels != null ? MessageConvert.SerializeObject(model.chuongModels) : null,
+                "CreateAt", model.CreateAt,
+                "UpdateAt", model.UpdateAt);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

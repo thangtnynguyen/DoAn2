@@ -46,3 +46,11 @@ C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\DataM
 C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
 C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\NSwag.Annotations.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ADMIN\source\repos\API_DoAn2\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
