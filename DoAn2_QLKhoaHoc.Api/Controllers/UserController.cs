@@ -14,6 +14,7 @@ using System.Text;
 
 namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 {
+    [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private IUserBUS _userbus;
@@ -38,7 +39,7 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
             if (_userbus.DangNhap(userModel)!=null)
             {
                 //var token =_userService.CreateToken(_userbus.DangNhap(userModel));
-
+                #region tạo token
                 var permissions = _userbus.GetPermissionsByUserId(_userbus.DangNhap(userModel));
 
                 var claims = new List<Claim>
@@ -68,6 +69,7 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
+                #endregion 
 
 
 
@@ -88,5 +90,26 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
             }    
             
         }
+        [Route("SignUp")]
+        [HttpPost]
+        public ApiResult<UserModel> SignUp([FromForm] UserModel userModel)
+        {
+            if (_userbus.DangKi(userModel))
+            {
+                return new ApiResult<UserModel>()
+                {
+                    Status = true,
+                    Message = "Đăng kí tài khoản thành công",
+                    Data = userModel
+                };
+            }
+            else
+                return new ApiResult<UserModel>()
+                {
+                    Status = false,
+                    Message = "Đăng kí thất bại!"
+                };
+        }
+
     }
 }

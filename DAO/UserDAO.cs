@@ -16,10 +16,10 @@ namespace DAO
     public class UserDAO : IUserDAO
     {
 
-        private ITruyVanDuLieu _dbHelper;
+        private ITruyVanDuLieu _truyvan;
         public UserDAO(ITruyVanDuLieu dbHelper)
         {
-            _dbHelper = dbHelper;
+            _truyvan = dbHelper;
         }
 
         public UserModel DangNhap(UserModel userModel)
@@ -31,7 +31,7 @@ namespace DAO
             try
             {
                 string query = "SELECT *  FROM Users WHERE Username = '"+userModel.UserName+"' AND PasswordHash = '"+userModel.PasswordHash+"'";
-                var dt=_dbHelper.ExecuteQueryToDataTable(query, out msgError);
+                var dt=_truyvan.ExecuteQueryToDataTable(query, out msgError);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<UserModel>().FirstOrDefault();
@@ -56,7 +56,7 @@ namespace DAO
             INNER JOIN Permissions ON RolePermissions.PermissionId = Permissions.Id
             WHERE UserRoles.UserId = '" + userModel.Id + "'";
 
-            var permissionsDt = _dbHelper.ExecuteQueryToDataTable(permissionQuery, out string permissionError);
+            var permissionsDt = _truyvan.ExecuteQueryToDataTable(permissionQuery, out string permissionError);
             if (!string.IsNullOrEmpty(permissionError))
             {
                 throw new Exception(permissionError);
@@ -64,6 +64,24 @@ namespace DAO
 
             return permissionsDt.Rows.Cast<DataRow>().Select(row => row["Name"].ToString()).ToList();
         }
+
+        public bool DangKi(UserModel userModel)
+        {
+            try
+            {
+                string ere = "";
+                object[] parameters = new object[] { "@Name", userModel.Name, "@UserName", userModel.UserName, "@Email", userModel.Email, "@PasswordHash", userModel.PasswordHash };
+                var dt = _truyvan.ExecuteScalarSProcedureWithTransaction(out ere, "sp_DangKi",parameters );
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
 
     }
 }

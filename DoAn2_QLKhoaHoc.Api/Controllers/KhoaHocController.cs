@@ -8,6 +8,7 @@ using DoAn2.QLKhoaHoc.Api.Admin.Attributes;
 
 namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 {
+    [Route("[controller]")]
     [HasPermission(Constants.Permission.ManageKhoaHoc)]
     public class KhoaHocController : ControllerBase
     {
@@ -22,7 +23,7 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         }
         [Route("create-khoahoc")]
         [HttpPost]
-        public KhoaHocModel CreateItem([FromBody] KhoaHocModel model )
+        public KhoaHocModel CreateItem([FromForm] KhoaHocModel model )
         {
             _khoahocbus.Create(model);
             return model;
@@ -36,7 +37,7 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         }
         [Route("update-khoahoc")]
         [HttpPost]
-        public KhoaHocModel UpdateItem([FromBody] KhoaHocModel model)
+        public KhoaHocModel UpdateItem([FromForm] KhoaHocModel model)
         {
             _khoahocbus.Update(model);
             return model;

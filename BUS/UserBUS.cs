@@ -13,21 +13,27 @@ namespace BUS
 {
     public class UserBUS:IUserBUS
     {
-        private IUserDAO _res;
+        private IUserDAO _iuserDAO;
         public UserBUS(IUserDAO res)
         {
-            _res = res;
+            _iuserDAO = res;
         }
 
         public UserModel DangNhap(UserModel userModel)
         {
-            return _res.DangNhap(userModel);
+            return _iuserDAO.DangNhap(userModel);
         }
         public List<string> GetPermissionsByUserId(UserModel userModel)
         {
-            return _res.GetPermissionsByUserId(userModel);
+            return _iuserDAO.GetPermissionsByUserId(userModel);
         }
-        
+        public bool DangKi(UserModel userModel)
+        {
+            return _iuserDAO.DangKi(userModel);
+        }
+
+
+
 
     }
 }

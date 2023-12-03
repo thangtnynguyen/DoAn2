@@ -11,6 +11,7 @@ namespace BUS.Interfaces
     {
         UserModel DangNhap(UserModel userModel);
         List<string> GetPermissionsByUserId(UserModel userModel);
+        public bool DangKi(UserModel userModel);
 
 
     }

@@ -12,6 +12,7 @@ namespace DAO.Interfaces
 
         UserModel DangNhap(UserModel userModel);
         List<string> GetPermissionsByUserId(UserModel userModel);
+        bool DangKi(UserModel userModel);
 
 
     }

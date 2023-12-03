@@ -15,10 +15,10 @@ namespace DAO
     public class KhoaHocDAO : IKhoaHocDAO
     {
 
-        private ITruyVanDuLieu _dbHelper;
+        private ITruyVanDuLieu _truyvan;
         public KhoaHocDAO(ITruyVanDuLieu dbHelper)
         {
-            _dbHelper = dbHelper;
+            _truyvan = dbHelper;
         }
         public bool Create(KhoaHocModel model)
         {
@@ -27,7 +27,7 @@ namespace DAO
             string msgError = "";
             try
             {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_ThemKhoaHoc_Chuong",
+                var result = _truyvan.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_ThemKhoaHoc_Chuong",
                  "@Ten", model.Ten,
                  "@Loai", model.LoaiId,
                  "@HinhAnh", model.HinhAnh,
@@ -63,7 +63,7 @@ namespace DAO
             string msgError = "";
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_LayKhoaHocById",
+                var dt = _truyvan.ExecuteSProcedureReturnDataTable(out msgError, "sp_LayKhoaHocById",
                      "@id", id);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
@@ -84,7 +84,7 @@ namespace DAO
             total = 0;
             try
             {
-                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_TimKiemKhoaHoc",
+                var dt = _truyvan.ExecuteSProcedureReturnDataTable(out msgError, "sp_TimKiemKhoaHoc",
                     "@page_index", pageIndex,
                     "@page_size", pageSize,
                     "@ten_khoa", ten_khoa);
@@ -106,7 +106,7 @@ namespace DAO
             string msgError = "";
             try
             {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_SuaKhoaHoc_Chuong",
+                var result = _truyvan.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_SuaKhoaHoc_Chuong",
                 "@Id", model.Id,
                 "@Ten", model.Ten,
                 "@Loai", model.LoaiId,
