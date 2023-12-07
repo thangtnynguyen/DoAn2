@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1ybail/xi4ifNS/rSCGXxYliTmphGiVi+Ni6QsBWw9RVREKlStBPBA7FTIc9MPfz9QjLV1CeKDj5hF3F0aisLg==",
+  "dgSpecHash": "mPBFAxb6ggRS4ZNqryKb2pz6y/n0gjHuz98icsa/ow11UAtyCMGDA82D6u3fsqfeJ+m34jxnOmGaMgwZFIxpqA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DoAn2_QLKhoaHoc.Api\\DoAn2.QLKhoaHoc.Api.Admin.csproj",
+  "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DoAn2_QLKhoaHoc.Api\\DoAn2.QLKhoaHoc.Api.Admin.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.21\\microsoft.aspnetcore.authentication.jwtbearer.6.0.21.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

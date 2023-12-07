@@ -3,7 +3,7 @@
     public class TacGiaModel
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string TenTacGia { get; set; }
         public string SoDienThoai { get; set; }
         public string ThongTin { get; set; }
         public string HinhAnh { get; set; }

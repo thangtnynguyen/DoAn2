@@ -1,4 +1,5 @@
-﻿using DataModel;
+﻿using DataModel.Common;
+using DataModel.KhoaHoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,10 @@ namespace BUS.Interfaces
         KhoaHocModel GetDatabyID(string id);
         bool Create(KhoaHocModel model);
         bool Update(KhoaHocModel model);
-        public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa);
-        bool Delete(KhoaHocModel model);
+        //public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa);
+        public PagingResult<KhoaHocModel> Search(GetKhoaHocRequest getKhoaHocRequest);
+        public List<KhoaHocModel> SearchAll();
+        bool Delete(KhoaHocDelete khoaHocDelete);
+
     }
 }

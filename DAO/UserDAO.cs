@@ -1,7 +1,7 @@
 ﻿using DAO.Helper;
 using DAO.Helper.Interfaces;
 using DAO.Interfaces;
-using DataModel;
+using DataModel.User;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,7 +22,7 @@ namespace DAO
             _truyvan = dbHelper;
         }
 
-        public UserModel DangNhap(UserModel userModel)
+        public UserRequest DangNhap(UserRequest userRequest)
         {
             //UserModel model = new UserModel();
             //return model;
@@ -30,13 +30,37 @@ namespace DAO
             string msgError = "";
             try
             {
-                string query = "SELECT *  FROM Users WHERE Username = '"+userModel.UserName+"' AND PasswordHash = '"+userModel.PasswordHash+"'";
-                var dt=_truyvan.ExecuteQueryToDataTable(query, out msgError);
+                //string password = userRequest.PasswordHash;
+                //string passwoedHash = password.HashPassword();
+                //string query = "SELECT *  FROM Users WHERE Username = '"+ userRequest.UserName+"' AND PasswordHash = '"+ passwoedHash+"'";
+                //var dt=_truyvan.ExecuteQueryToDataTable(query, out msgError);
+                //if (!string.IsNullOrEmpty(msgError))
+                //    throw new Exception(msgError);
+                //return dt.ConvertTo<UserRequest>().FirstOrDefault();
+
+                string query = "SELECT *  FROM Users WHERE Username = '" + userRequest.UserName + "'";
+                var dt = _truyvan.ExecuteQueryToDataTable(query, out msgError);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
-                return dt.ConvertTo<UserModel>().FirstOrDefault();
-
+                if (dt.Rows.Count!=0 && dt!=null)
+                {
+                     var user= dt.ConvertTo<UserRequest>().FirstOrDefault();
+                    string passwoedHash = user.PasswordHash.ToString();
+                    string password = userRequest.PasswordHash;
+                    bool kq = password.VerifyPassword(passwoedHash);
+                    if (kq)
+                    {
+                        return user;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                return null;
                 
+                                   
+
             }
             catch (Exception ex)
             {
@@ -46,7 +70,7 @@ namespace DAO
 
      
 
-        public List<string> GetPermissionsByUserId(UserModel userModel)
+        public List<string> GetPermissionsByUserId(UserRequest userRequest)
         {
             // Thực hiện truy vấn để lấy thông tin về các permission của người dùng
             string permissionQuery = @"
@@ -54,7 +78,7 @@ namespace DAO
             FROM UserRoles
             INNER JOIN RolePermissions ON UserRoles.RoleId = RolePermissions.RoleId
             INNER JOIN Permissions ON RolePermissions.PermissionId = Permissions.Id
-            WHERE UserRoles.UserId = '" + userModel.Id + "'";
+            WHERE UserRoles.UserId = '" + userRequest.Id + "'";
 
             var permissionsDt = _truyvan.ExecuteQueryToDataTable(permissionQuery, out string permissionError);
             if (!string.IsNullOrEmpty(permissionError))
@@ -65,12 +89,15 @@ namespace DAO
             return permissionsDt.Rows.Cast<DataRow>().Select(row => row["Name"].ToString()).ToList();
         }
 
-        public bool DangKi(UserModel userModel)
+        public bool DangKi(UserRequest userRequest)
         {
             try
             {
+
+                string password =userRequest.PasswordHash;
+                string passwoedHash=password.HashPassword();
                 string ere = "";
-                object[] parameters = new object[] { "@Name", userModel.Name, "@UserName", userModel.UserName, "@Email", userModel.Email, "@PasswordHash", userModel.PasswordHash };
+                object[] parameters = new object[] { "@Name", userRequest.Name, "@UserName", userRequest.UserName, "@Email", userRequest.Email, "@PasswordHash", passwoedHash };
                 var dt = _truyvan.ExecuteScalarSProcedureWithTransaction(out ere, "sp_DangKi",parameters );
                 return true;
             }

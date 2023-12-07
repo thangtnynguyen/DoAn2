@@ -1,4 +1,4 @@
-﻿namespace DataModel
+﻿namespace DataModel.Common
 {
     public class ApiResult<T>
     {

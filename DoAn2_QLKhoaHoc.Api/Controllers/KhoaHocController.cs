@@ -1,10 +1,11 @@
 ﻿using DAO.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using BUS;
-using DataModel;
 using BUS.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using DoAn2.QLKhoaHoc.Api.Admin.Attributes;
+using DataModel.KhoaHoc;
+using DataModel.Common;
 
 namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 {
@@ -23,14 +24,32 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         }
         [Route("create-khoahoc")]
         [HttpPost]
-        public KhoaHocModel CreateItem([FromForm] KhoaHocModel model )
+        [AllowAnonymous]
+        public ApiResult<KhoaHocModel> CreateItem([FromForm] KhoaHocModel model )
         {
-            _khoahocbus.Create(model);
-            return model;
+            if (_khoahocbus.Create(model)!=null)
+            {
+                return new ApiResult<KhoaHocModel>()
+                {
+                    Message = "Thêm khóa học thành công nhé",
+                    Status = true,
+                    Data = model
+                };
+            }
+            else
+            {
+                return new ApiResult<KhoaHocModel>()
+                {
+                    Message = "Lỗi rồi",
+                    Status = false,
+                    Data = null
+                };
+            }           
         }
         [Route("get-khoahoc-by-id")]
         [HttpGet]
-        [HasPermission(Constants.Permission.ManageKhoaHocView)]
+        //[HasPermission(Constants.Permission.ManageKhoaHocView)]
+        [AllowAnonymous]
         public KhoaHocModel GetDatabyID( [FromQuery] string id)
         {
             return _khoahocbus.GetDatabyID(id);
@@ -44,30 +63,60 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         }
         [Route("search-khoahoc")]
         [HttpPost]
-        public IActionResult Search([FromBody] Dictionary<string, object> formData)
+        [AllowAnonymous]
+        public ApiResult<PagingResult<KhoaHocModel>> Search([FromBody] GetKhoaHocRequest getKhoaHocRequest)
         {
             try
             {
-                var page = int.Parse(formData["page"].ToString());
-                var pageSize = int.Parse(formData["pageSize"].ToString());
-                string ten_khoa = "";
-                if (formData.Keys.Contains("ten_khoa") && !string.IsNullOrEmpty(Convert.ToString(formData["ten_khoa"]))) { ten_khoa = Convert.ToString(formData["ten_khoa"]); }
-                long total = 0;
-                var data = _khoahocbus.Search(page, pageSize, out total, ten_khoa);
-                return Ok(
-                    new
-                    {
-                        TotalItems = total,
-                        Data = data,
-                        Page = page,
-                        PageSize = pageSize
-                    }
-                    );
+                var data = _khoahocbus.Search(getKhoaHocRequest);
+                return new ApiResult<PagingResult<KhoaHocModel>>()
+                {
+                    Status = true,
+                    Message = "Danh sách khóa học đã được lấy thành công!",
+                    Data = data
+                };
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+        }
+        [Route("search-all")]
+        [HttpGet]
+        [AllowAnonymous]
+        public ApiResult<List<KhoaHocModel>> SearchAll()
+        {
+            return new ApiResult<List<KhoaHocModel>>
+            {
+                Message = "Thành công",
+                Status = true,
+                Data = _khoahocbus.SearchAll()
+            };
+        }
+        [Route("delete")]
+        [HttpPost]
+        [AllowAnonymous]
+        public ApiResult<String> Delete([FromBody] KhoaHocDelete khoaHocDelete)
+        {
+            if (_khoahocbus.Delete(khoaHocDelete))
+            {
+                return new ApiResult<String>
+                {
+                    Message = "Xóa thành công rồi nhé",
+                    Status = true,
+                    Data = _khoahocbus.Delete(khoaHocDelete).ToString()
+                };
+            }
+            else
+            {
+                return new ApiResult<String>
+                {
+                    Message = "Lỗi, không có khóa học có id như vậy",
+                    Status = false,
+                    Data = _khoahocbus.Delete(khoaHocDelete).ToString()
+                };
+            }
+            
         }
     }
 }

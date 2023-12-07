@@ -15,14 +15,29 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowSpecificOrigins", builder =>
+//    {
+//        builder.WithOrigins("http://127.0.0.1:5501", "http://localhost:5501")
+//               .AllowAnyMethod()
+//               .AllowAnyHeader();
+//    });
+//});
+
 // Add services to the container.
 builder.Services.AddTransient<ITruyVanDuLieu, TruyVanDuLieu>();
 builder.Services.AddTransient<IKhoaHocDAO, KhoaHocDAO>();
 builder.Services.AddTransient<IUserDAO, UserDAO>();
 builder.Services.AddTransient<ITacGiaDAO, TacGiaDAO>();
 builder.Services.AddTransient<ITaiLieuDAO, TaiLieuDAO>();
+builder.Services.AddTransient<ILoaiKhoaHocDAO, LoaiKhoaHocDAO>();
 builder.Services.AddTransient<IKhoaHocBUS, KhoaHocBUS>();
 builder.Services.AddTransient<IUserBUS, UserBUS>();
+builder.Services.AddTransient<ITacGiaBUS, TacGiaBUS>();
+builder.Services.AddTransient<ILoaiKhoaHocBUS, LoaiKhoaHocBUS>();
+
 
 
 //builder.Services.AddAuthorization(options =>
@@ -83,7 +98,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors(
+    x=>x.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

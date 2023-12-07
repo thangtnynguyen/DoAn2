@@ -1,5 +1,5 @@
 ﻿using BUS.Interfaces;
-using DataModel;
+using DataModel.User;
 using DoAn2.QLKhoaHoc.Api.Admin.Constants;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
@@ -20,16 +20,16 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Services
             
         }
 
-        public  string CreateToken(UserModel userModel)
+        public  string CreateToken(UserRequest userRequest)
         {
             var key = _config["Jwt:Key"];
 
-            var permissions =  _userbus.GetPermissionsByUserId(userModel);
+            var permissions =  _userbus.GetPermissionsByUserId(userRequest);
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimType.UserName, userModel.UserName),
-                new Claim(ClaimType.Email, userModel.Email),
+                new Claim(ClaimType.UserName, userRequest.UserName),
+                new Claim(ClaimType.Email, userRequest.Email),
             };
 
             foreach (var permission in permissions)

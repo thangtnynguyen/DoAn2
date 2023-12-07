@@ -1,6 +1,6 @@
 ﻿using BUS.Interfaces;
 using DAO.Interfaces;
-using DataModel;
+using DataModel.User;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,17 +19,17 @@ namespace BUS
             _iuserDAO = res;
         }
 
-        public UserModel DangNhap(UserModel userModel)
+        public UserRequest DangNhap(UserRequest userRequest)
         {
-            return _iuserDAO.DangNhap(userModel);
+            return _iuserDAO.DangNhap(userRequest);
         }
-        public List<string> GetPermissionsByUserId(UserModel userModel)
+        public List<string> GetPermissionsByUserId(UserRequest userRequest)
         {
-            return _iuserDAO.GetPermissionsByUserId(userModel);
+            return _iuserDAO.GetPermissionsByUserId(userRequest);
         }
-        public bool DangKi(UserModel userModel)
+        public bool DangKi(UserRequest userRequest)
         {
-            return _iuserDAO.DangKi(userModel);
+            return _iuserDAO.DangKi(userRequest);
         }
 
 

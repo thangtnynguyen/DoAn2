@@ -1,4 +1,4 @@
-﻿using DataModel;
+﻿using DataModel.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +9,9 @@ namespace BUS.Interfaces
 {
     public partial interface IUserBUS
     {
-        UserModel DangNhap(UserModel userModel);
-        List<string> GetPermissionsByUserId(UserModel userModel);
-        public bool DangKi(UserModel userModel);
+        UserRequest DangNhap(UserRequest userRequest);
+        List<string> GetPermissionsByUserId(UserRequest userRequest);
+        public bool DangKi(UserRequest userRequest);
 
 
     }

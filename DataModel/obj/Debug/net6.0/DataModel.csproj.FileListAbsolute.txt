@@ -9,3 +9,14 @@ C:\Users\ADMIN\source\repos\API_DoAn2\DataModel\obj\Debug\net6.0\DataModel.dll
 C:\Users\ADMIN\source\repos\API_DoAn2\DataModel\obj\Debug\net6.0\refint\DataModel.dll
 C:\Users\ADMIN\source\repos\API_DoAn2\DataModel\obj\Debug\net6.0\DataModel.pdb
 C:\Users\ADMIN\source\repos\API_DoAn2\DataModel\obj\Debug\net6.0\ref\DataModel.dll
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\bin\Debug\net6.0\DataModel.deps.json
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\bin\Debug\net6.0\DataModel.dll
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\bin\Debug\net6.0\DataModel.pdb
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\DataModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\DataModel.AssemblyInfoInputs.cache
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\DataModel.AssemblyInfo.cs
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\DataModel.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\DataModel.dll
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\refint\DataModel.dll
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\DataModel.pdb
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DataModel\obj\Debug\net6.0\ref\DataModel.dll

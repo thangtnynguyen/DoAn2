@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "BCrypt.Net-Next/4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.21": {
         "type": "package",
         "dependencies": {
@@ -495,6 +508,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "DataModel": "1.0.0",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Newtonsoft.Json": "13.0.3",
@@ -520,6 +534,37 @@
     }
   },
   "libraries": {
+    "BCrypt.Net-Next/4.0.3": {
+      "sha512": "W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.0.3.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "ico.png",
+        "lib/net20/BCrypt.Net-Next.dll",
+        "lib/net20/BCrypt.Net-Next.xml",
+        "lib/net35/BCrypt.Net-Next.dll",
+        "lib/net35/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt.Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt.Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt.Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/net5.0/BCrypt.Net-Next.dll",
+        "lib/net5.0/BCrypt.Net-Next.xml",
+        "lib/net6.0/BCrypt.Net-Next.dll",
+        "lib/net6.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt.Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt.Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.21": {
       "sha512": "EZfFWxMTd2Su5kfhaL5gIhEGANVcBV89qQX4nu/akSQNutW4AjfEujniQJTn/PXUaqOhWnykyKmly4p66CzbRA==",
       "type": "package",
@@ -1616,11 +1661,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DoAn2_QLKhoaHoc.Api\\DoAn2.QLKhoaHoc.Api.Admin.csproj",
+      "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DoAn2_QLKhoaHoc.Api\\DoAn2.QLKhoaHoc.Api.Admin.csproj",
       "projectName": "DoAn2.QLKhoaHoc.Api.Admin",
-      "projectPath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DoAn2_QLKhoaHoc.Api\\DoAn2.QLKhoaHoc.Api.Admin.csproj",
+      "projectPath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DoAn2_QLKhoaHoc.Api\\DoAn2.QLKhoaHoc.Api.Admin.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DoAn2_QLKhoaHoc.Api\\obj\\",
+      "outputPath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DoAn2_QLKhoaHoc.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1637,11 +1682,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\BUS\\BUS.csproj": {
-              "projectPath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\BUS\\BUS.csproj"
+            "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\BUS\\BUS.csproj": {
+              "projectPath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\BUS\\BUS.csproj"
             },
-            "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DAO\\DAO.csproj": {
-              "projectPath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DAO\\DAO.csproj"
+            "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DAO\\DAO.csproj": {
+              "projectPath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DAO\\DAO.csproj"
             }
           }
         }

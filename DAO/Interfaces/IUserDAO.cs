@@ -1,4 +1,4 @@
-﻿using DataModel;
+﻿using DataModel.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace DAO.Interfaces
     public partial interface IUserDAO
     {
 
-        UserModel DangNhap(UserModel userModel);
-        List<string> GetPermissionsByUserId(UserModel userModel);
-        bool DangKi(UserModel userModel);
+        UserRequest DangNhap(UserRequest userRequest);
+        List<string> GetPermissionsByUserId(UserRequest userRequest);
+        bool DangKi(UserRequest userRequest);
 
 
     }

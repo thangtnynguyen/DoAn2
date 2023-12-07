@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DataModel\\DataModel.csproj": {}
+    "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DataModel\\DataModel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DataModel\\DataModel.csproj": {
+    "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DataModel\\DataModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DataModel\\DataModel.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DataModel\\DataModel.csproj",
         "projectName": "DataModel",
-        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DataModel\\DataModel.csproj",
+        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DataModel\\DataModel.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\API_DoAn2\\DataModel\\obj\\",
+        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\DataModel\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

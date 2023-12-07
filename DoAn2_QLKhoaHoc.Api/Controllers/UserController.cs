@@ -1,7 +1,6 @@
 ﻿using DAO.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using BUS;
-using DataModel;
 using BUS.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Newtonsoft.Json.Linq;
@@ -11,6 +10,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DataModel.User;
+using DataModel.Common;
 
 namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 {
@@ -33,19 +34,19 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 
         [Route("login")]
         [HttpPost]
-        public ApiResult<string> Login([FromBody] UserModel userModel)
+        public ApiResult<string> Login([FromBody] UserRequest userRequest)
         {
 
-            if (_userbus.DangNhap(userModel)!=null)
+            if (_userbus.DangNhap(userRequest) !=null)
             {
                 //var token =_userService.CreateToken(_userbus.DangNhap(userModel));
                 #region tạo token
-                var permissions = _userbus.GetPermissionsByUserId(_userbus.DangNhap(userModel));
+                var permissions = _userbus.GetPermissionsByUserId(_userbus.DangNhap(userRequest));
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimType.UserName, _userbus.DangNhap(userModel).UserName),
-                    new Claim(ClaimType.Email, _userbus.DangNhap(userModel).Email),
+                    new Claim(ClaimType.UserName, _userbus.DangNhap(userRequest).UserName),
+                    new Claim(ClaimType.Email, _userbus.DangNhap(userRequest).Email),
                 };
 
                 foreach (var permission in permissions)
@@ -92,22 +93,23 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         }
         [Route("SignUp")]
         [HttpPost]
-        public ApiResult<UserModel> SignUp([FromForm] UserModel userModel)
+        public ApiResult<UserRequest> SignUp([FromForm] UserRequest userRequest)
         {
-            if (_userbus.DangKi(userModel))
+            if (_userbus.DangKi(userRequest))
             {
-                return new ApiResult<UserModel>()
+                return new ApiResult<UserRequest>()
                 {
                     Status = true,
                     Message = "Đăng kí tài khoản thành công",
-                    Data = userModel
+                    Data = userRequest
                 };
             }
             else
-                return new ApiResult<UserModel>()
+                return new ApiResult<UserRequest>()
                 {
                     Status = false,
-                    Message = "Đăng kí thất bại!"
+                    Message = "Đăng kí thất bại!",
+                    Data=null
                 };
         }
 

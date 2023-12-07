@@ -27,7 +27,7 @@ namespace DAO.Helper.Interfaces
         object ExecuteScalar(string strquery, out string msgError);
         object ExecuteScalarSProcedureWithTransaction(out string msgError, string sprocedureName, params object[] paramObjects);
         DataTable ExecuteSProcedureReturnDataTable(out string msgError, string sprocedureName, params object[] paramObjects);
-
+        string ExecuteSProcedureNonQuery(string sprocedureName, params object[] paramObjects);
 
 
     }
