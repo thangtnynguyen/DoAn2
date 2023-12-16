@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataModel
+namespace DataModel.BaiViet
 {
-    public class TuongTacBaiVietModel
+    public class ChiTietBaiVietModel
     {
         public int IdBaiViet { get; set; }
-        public int SoLike { get; set; }
+        public string NoiDungChiTiet { get; set; }
         public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; } 
+        public DateTime UpdateAt { get; set; }
     }
 }

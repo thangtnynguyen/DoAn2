@@ -13,7 +13,7 @@ namespace DAO.Interfaces
         UserRequest DangNhap(UserRequest userRequest);
         List<string> GetPermissionsByUserId(UserRequest userRequest);
         bool DangKi(UserRequest userRequest);
-
+        public string GetRoleByUserId(UserRequest userRequest);
 
     }
 }

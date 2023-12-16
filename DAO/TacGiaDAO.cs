@@ -1,7 +1,7 @@
 ﻿using DAO.Helper;
 using DAO.Helper.Interfaces;
 using DAO.Interfaces;
-using DataModel;
+using DataModel.TacGia;
 
 namespace DAO
 {

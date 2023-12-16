@@ -1,7 +1,7 @@
 ﻿using BUS;
 using BUS.Interfaces;
-using DataModel;
 using DataModel.Common;
+using DataModel.LoaiKhoaHoc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

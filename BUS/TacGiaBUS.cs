@@ -1,6 +1,6 @@
 ﻿using BUS.Interfaces;
 using DAO.Interfaces;
-using DataModel;
+using DataModel.TacGia;
 using System;
 using System.Collections.Generic;
 using System.Linq;

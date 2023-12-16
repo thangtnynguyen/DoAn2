@@ -32,7 +32,11 @@ namespace BUS
             return _iuserDAO.DangKi(userRequest);
         }
 
+        public string GetRoleByUserId(UserRequest userRequest)
+        {
+            return _iuserDAO.GetRoleByUserId(userRequest);
 
+        }
 
 
     }

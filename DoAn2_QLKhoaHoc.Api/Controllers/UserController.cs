@@ -34,7 +34,7 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
 
         [Route("login")]
         [HttpPost]
-        public ApiResult<string> Login([FromBody] UserRequest userRequest)
+        public ApiResult<TokenRole> Login([FromForm] UserRequest userRequest)
         {
 
             if (_userbus.DangNhap(userRequest) !=null)
@@ -72,21 +72,31 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
                 var token = tokenHandler.WriteToken(securityToken);
                 #endregion 
 
+                var userRequestRole = new UserRequest()
+                {
+                    Id = _userbus.DangNhap(userRequest).Id,
+                };
+                var role = _userbus.GetRoleByUserId(userRequestRole).ToString();        
 
-
-                return new ApiResult<string>()
+                return new ApiResult<TokenRole>()
                 {
                     Status = true,
                     Message = "Đăng nhập thành công!",
-                    Data = token.ToString()
+                    Data = new TokenRole()
+                    {
+                        Role = role,
+                        Token = token,
+                        UserRequest = _userbus.DangNhap(userRequest),
+                    }
                 };
             }
             else
             {
-                return new ApiResult<string>()
+                return new ApiResult<TokenRole>()
                 {
                     Status = false,
                     Message = "Tạo mã thông báo thất bại!",
+                    Data = null,
                 };
             }    
             
@@ -110,6 +120,27 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
                     Status = false,
                     Message = "Đăng kí thất bại!",
                     Data=null
+                };
+        }
+        [Route("Role")]
+        [HttpPost]
+        public ApiResult<string> Role([FromForm] UserRequest userRequest)
+        {
+            if (_userbus.GetRoleByUserId(userRequest).ToString()!="" && _userbus.GetRoleByUserId(userRequest)!= null)
+            {
+                return new ApiResult<string>()
+                {
+                    Status = true,
+                    Message = "Lấy vai trò thành công",
+                    Data = _userbus.GetRoleByUserId(userRequest).ToString(),
+                };
+            }
+            else
+                return new ApiResult<string>()
+                {
+                    Status = false,
+                    Message = "Lấy vai trò thất bại!",
+                    Data = "",
                 };
         }
 

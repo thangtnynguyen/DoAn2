@@ -1,4 +1,4 @@
-﻿namespace DataModel
+﻿namespace DataModel.TacGia
 {
     public class TacGiaModel
     {

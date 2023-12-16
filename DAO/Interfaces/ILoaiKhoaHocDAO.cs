@@ -1,4 +1,4 @@
-﻿using DataModel;
+﻿using DataModel.LoaiKhoaHoc;
 using System;
 using System.Collections.Generic;
 using System.Linq;

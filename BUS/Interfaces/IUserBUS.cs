@@ -12,7 +12,7 @@ namespace BUS.Interfaces
         UserRequest DangNhap(UserRequest userRequest);
         List<string> GetPermissionsByUserId(UserRequest userRequest);
         public bool DangKi(UserRequest userRequest);
-
+        public string GetRoleByUserId(UserRequest userRequest);
 
     }
 }

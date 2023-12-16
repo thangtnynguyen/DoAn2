@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataModel.KhoaHoc.BaiHoc;
 
-namespace DataModel
+namespace DataModel.KhoaHoc.Chuong
 {
     public class ChuongModel
     {

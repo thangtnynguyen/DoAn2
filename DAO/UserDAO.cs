@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -107,6 +108,38 @@ namespace DAO
                 throw;
             }
             
+        }
+        public string GetRoleByUserId(UserRequest userRequest)
+        {
+            try
+            {
+                string roleQuery = @"
+                SELECT Roles.Name
+                FROM Roles
+                INNER JOIN UserRoles ON UserRoles.RoleId = Roles.Id
+                INNER JOIN Users ON UserRoles.UserId = Users.Id
+                WHERE UserRoles.UserId = '" + userRequest.Id + "'";
+                var roleDt = _truyvan.ExecuteQueryToDataTable(roleQuery, out string roleError);
+                if (!string.IsNullOrEmpty(roleError))
+                {
+                    throw new Exception(roleError);
+                }
+                if (roleDt != null && roleDt.Rows.Count > 0)
+                {
+                    return roleDt.Rows.Cast<DataRow>().Select(row => row["Name"]).FirstOrDefault().ToString();
+
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
 

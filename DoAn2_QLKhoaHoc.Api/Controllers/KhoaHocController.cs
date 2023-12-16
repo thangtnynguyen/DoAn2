@@ -24,7 +24,8 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         }
         [Route("create-khoahoc")]
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
+        //[HasPermission(Constants.Permission.ManageKhoaHocCreate)]
         public ApiResult<KhoaHocModel> CreateItem([FromForm] KhoaHocModel model )
         {
             if (_khoahocbus.Create(model)!=null)
@@ -49,13 +50,14 @@ namespace DoAn2.QLKhoaHoc.Api.Admin.Controllers
         [Route("get-khoahoc-by-id")]
         [HttpGet]
         //[HasPermission(Constants.Permission.ManageKhoaHocView)]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public KhoaHocModel GetDatabyID( [FromQuery] string id)
         {
             return _khoahocbus.GetDatabyID(id);
         }
         [Route("update-khoahoc")]
         [HttpPost]
+        [HasPermission(Constants.Permission.ManageKhoaHocEdit)]
         public KhoaHocModel UpdateItem([FromForm] KhoaHocModel model)
         {
             _khoahocbus.Update(model);

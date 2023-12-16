@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataModel
+namespace DataModel.LoaiKhoaHoc
 {
     public class LoaiKhoaHocModel
     {
@@ -12,6 +12,6 @@ namespace DataModel
         public string TenLoai { get; set; }
         public string MoTa { get; set; }
         public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; } 
+        public DateTime UpdateAt { get; set; }
     }
 }
