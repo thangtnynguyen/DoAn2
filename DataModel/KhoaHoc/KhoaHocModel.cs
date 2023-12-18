@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using DataModel.KhoaHoc.Chuong;
+using Microsoft.AspNetCore.Http;
 
 namespace DataModel.KhoaHoc
 {
@@ -24,6 +26,8 @@ namespace DataModel.KhoaHoc
         public int Id { get; set; }
 
         public string Ten { get; set; }
+
+        public IFormFile? HinhAnhFile { get; set; }
 
         public string HinhAnh { get; set; }
 

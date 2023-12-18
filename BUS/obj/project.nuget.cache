@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VY15WeQLM4hW9mD6CBel3q/2fD75ubURm6/9llFanE54Dekufk90dgyCvT22VrYLNzVDCIekFXFlS7ZSpmiMQg==",
+  "dgSpecHash": "RHHIT/HVoYBogdePpMIu6ieHkMa2OjWluY8rkL8GBaORoiKgukZcc7c+5toMYC5M4lTsVqIsljj54jRIZ72AkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\DoAn2_ASP.net\\DoAn2.QLKhoaHoc.Admin\\BUS\\BUS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",

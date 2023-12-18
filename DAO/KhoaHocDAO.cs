@@ -12,6 +12,9 @@ using DataModel.User;
 using DataModel.KhoaHoc;
 using System.Reflection;
 using DataModel.Common;
+using System.Data.SqlClient;
+using System.Data;
+using System.Reflection.Metadata;
 
 namespace DAO
 {
@@ -64,6 +67,30 @@ namespace DAO
                 throw;
             }
         }
+        public bool DeleteMultiple(List<KhoaHocDelete> khoaHocDeletes)
+        {
+            try
+            {
+              
+                object[] parameters = new object[] { "@IdsJson", khoaHocDeletes  != null ? MessageConvert.SerializeObject(khoaHocDeletes) : null };
+                var result = _truyvan.ExecuteSProcedureNonQuery("sp_XoaNhieuKhoaHoc", parameters);
+
+                if (result != null && result.ToString() == "")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
 
         public KhoaHocModel GetDatabyID(string id)
         {

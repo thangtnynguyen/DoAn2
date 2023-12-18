@@ -9,6 +9,7 @@ using DAO.Interfaces;
 using DoAn2.QLKhoaHoc.Api.Admin.Providers;
 using Microsoft.OpenApi.Models;
 using DoAn2.QLKhoaHoc.Api.Admin.Middlewares;
+using DoAn2.QLKhoaHoc.Api.Admin.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
@@ -37,6 +38,8 @@ builder.Services.AddTransient<IKhoaHocBUS, KhoaHocBUS>();
 builder.Services.AddTransient<IUserBUS, UserBUS>();
 builder.Services.AddTransient<ITacGiaBUS, TacGiaBUS>();
 builder.Services.AddTransient<ILoaiKhoaHocBUS, LoaiKhoaHocBUS>();
+builder.Services.AddTransient<FileService>();
+builder.Services.AddTransient<UserService>();
 
 
 
@@ -103,6 +106,8 @@ app.UseCors(
     .AllowAnyMethod()
     .AllowAnyHeader());
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();////////////
 
 app.UseAuthentication();
 

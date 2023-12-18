@@ -112,3 +112,4 @@ C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DoAn2_QLKhoaHoc.
 C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DoAn2_QLKhoaHoc.Api\obj\Debug\net6.0\DoAn2.QLKhoaHoc.Api.Admin.pdb
 C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DoAn2_QLKhoaHoc.Api\obj\Debug\net6.0\DoAn2.QLKhoaHoc.Api.Admin.genruntimeconfig.cache
 C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DoAn2_QLKhoaHoc.Api\obj\Debug\net6.0\ref\DoAn2.QLKhoaHoc.Api.Admin.dll
+C:\Users\ADMIN\source\repos\DoAn2_ASP.net\DoAn2.QLKhoaHoc.Admin\DoAn2_QLKhoaHoc.Api\bin\Debug\net6.0\DoAn2.QLKhoaHoc.Api.Admin.staticwebassets.runtime.json

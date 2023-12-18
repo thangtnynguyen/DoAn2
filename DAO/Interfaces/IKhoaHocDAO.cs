@@ -14,7 +14,8 @@ namespace DAO.Interfaces
         bool Create(KhoaHocModel model);
         bool Update(KhoaHocModel model);
         bool Delete(KhoaHocDelete khoaHocDelete);
-        //public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa);
+        public bool DeleteMultiple(List<KhoaHocDelete> khoaHocDeletes);
+
         public PagingResult<KhoaHocModel> Search(GetKhoaHocRequest getKhoaHocRequest);
 
         public List<KhoaHocModel> SearchAll();

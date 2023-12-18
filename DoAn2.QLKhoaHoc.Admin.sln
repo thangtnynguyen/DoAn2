@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAn2.QLKhoaHoc.Api.Admin", "DoAn2_QLKhoaHoc.Api\DoAn2.QLKhoaHoc.Api.Admin.csproj", "{E1FBB88A-AC94-4A7E-B472-F0D97F579698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoAn2.QLKhoaHoc.Api.Admin", "DoAn2_QLKhoaHoc.Api\DoAn2.QLKhoaHoc.Api.Admin.csproj", "{E1FBB88A-AC94-4A7E-B472-F0D97F579698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS", "BUS\BUS.csproj", "{596ED21F-BBC5-4F0B-ACF1-EA830A016F01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BUS", "BUS\BUS.csproj", "{596ED21F-BBC5-4F0B-ACF1-EA830A016F01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{3D8BE300-E574-4DFB-9870-E9A0A44E77BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{3D8BE300-E574-4DFB-9870-E9A0A44E77BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{19E06D4A-172E-4BC2-B343-D599BE5F6867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModel", "DataModel\DataModel.csproj", "{19E06D4A-172E-4BC2-B343-D599BE5F6867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

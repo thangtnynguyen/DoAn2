@@ -19,18 +19,38 @@ namespace BUS
         }
         public KhoaHocModel GetDatabyID(string id)
         {
-            return _khoaHocDAO.GetDatabyID(id);
+            KhoaHocModel result = _khoaHocDAO.GetDatabyID(id);
+
+            if (result != null)
+            {
+                if (!string.IsNullOrEmpty(result.HinhAnh))
+                {
+                    result.HinhAnh = SystemConfig.BaseUrl + result.HinhAnh;
+                }
+            }
+            return result;
         }
 
-        //public List<KhoaHocModel> Search(int pageIndex, int pageSize, out long total, string ten_khoa)
-        //{
-        //    return _khoaHocDAO.Search(pageIndex, pageSize, out total, ten_khoa);
-        //}
+      
+
         public PagingResult<KhoaHocModel> Search(GetKhoaHocRequest getKhoaHocRequest)
         {
-            return _khoaHocDAO.Search(getKhoaHocRequest);
+            PagingResult<KhoaHocModel> result = _khoaHocDAO.Search(getKhoaHocRequest);
 
+            if (result != null && result.Items != null && result.Items.Any())
+            {
+                foreach (var khoaHocModel in result.Items)
+                {
+                    if (!string.IsNullOrEmpty(khoaHocModel.HinhAnh))
+                    {
+                        khoaHocModel.HinhAnh = SystemConfig.BaseUrl + khoaHocModel.HinhAnh;
+                    }
+                }
+            }
+
+            return result;
         }
+
 
         public bool Update(KhoaHocModel model)
         {
@@ -38,12 +58,30 @@ namespace BUS
         }
         public List<KhoaHocModel> SearchAll()
         {
-            return _khoaHocDAO.SearchAll();
+            //return _khoaHocDAO.SearchAll();
+            List<KhoaHocModel> result = _khoaHocDAO.SearchAll();
+
+            if (result != null && result.Any())
+            {
+                foreach (var khoaHocModel in result)
+                {
+                    if (!string.IsNullOrEmpty(khoaHocModel.HinhAnh))
+                    {
+                        khoaHocModel.HinhAnh = SystemConfig.BaseUrl + khoaHocModel.HinhAnh;
+                    }
+                }
+            }
+            return result;
         }
         public bool Delete(KhoaHocDelete khoaHocDelete)
         {
             return _khoaHocDAO.Delete(khoaHocDelete);
         }
+        public bool DeleteMultiple(List<KhoaHocDelete> khoaHocDeletes)
+        {
+            return _khoaHocDAO.DeleteMultiple(khoaHocDeletes);
+        }
+
 
     }
 }
